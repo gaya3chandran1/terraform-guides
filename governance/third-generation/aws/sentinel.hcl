@@ -14,6 +14,7 @@ module "aws-functions" {
   source = "./aws-functions/aws-functions.sentinel"
 }
 
+/*
 policy "enforce-mandatory-tags" {
   source = "./enforce-mandatory-tags.sentinel"
   enforcement_level = "advisory"
@@ -131,5 +132,11 @@ policy "restrict-subnet-of-ec2-instances" {
 
 policy "validate-providers-from-desired-regions" {
   source = "./validate-providers-from-desired-regions.sentinel"
+  enforcement_level = "advisory"
+}
+*/
+
+policy "ami-restrict" {
+  source = "./ami-restrict.sentinel"
   enforcement_level = "advisory"
 }

@@ -1,0 +1,23 @@
+        # This policy uses the Sentinel tfstatev2 import to restrict the owners set on
+        # all instances of the aws_ami data source in all modules
+
+        # Import common-functions/tfplan-functions/tfplan-functions.sentinel
+        # with alias "plan"
+        import "tfplan-functions" as plan
+
+        # Allowed Owners
+        # Include "null" to allow missing or computed values
+        allowed_owners = ["self", "099720109477", "099720109478"]
+
+        # Get all AMIs
+        allAMIs = plan.find_datasources("aws_ami")
+
+        # Filter to AMIs with violations
+        # Warnings will be printed for all violations since the last parameter is true
+        violatingAMIs =
+        plan.filter_attribute_contains_items_not_in_list(allAMIs, "owners", allowed_owners, true)
+
+        # Main rule
+        main = rule {
+        length(violatingAMIs["messages"]) is 0
+        }

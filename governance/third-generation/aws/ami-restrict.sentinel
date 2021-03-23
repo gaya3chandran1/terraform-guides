@@ -7,7 +7,7 @@
 
         # Allowed Owners
         # Include "null" to allow missing or computed values
-        allowed_owners = ["self", "099720109477", "099720109478"]
+        allowed_owners = ["822247890901"]
 
         # Get all AMIs
         allAMIs = plan.find_datasources("aws_ami")

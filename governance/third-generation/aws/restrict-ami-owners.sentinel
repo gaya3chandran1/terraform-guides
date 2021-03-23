@@ -7,7 +7,8 @@ import "tfstate-functions" as state
 
 # Allowed Owners
 # Include "null" to allow missing or computed values
-allowed_owners = ["self", "099720109477", "099720109478"]
+#allowed_owners = ["self", "099720109477", "099720109478"]
+allowed_owners = [ "09974ad09478"]
 
 # Get all AMIs
 allAMIs = state.find_datasources("aws_ami")

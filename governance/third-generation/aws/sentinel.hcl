@@ -138,5 +138,5 @@ policy "validate-providers-from-desired-regions" {
 
 policy "ami-restrict" {
   source = "./ami-restrict.sentinel"
-  enforcement_level = "hard-mandatory "
+  enforcement_level = "hard mandatory "
 }
